@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import Layout from "../components/Layout";
+import "keen-slider/keen-slider.min.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

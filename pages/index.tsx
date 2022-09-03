@@ -1,14 +1,13 @@
-import { Button,CopyButton } from '@mantine/core'
-import type { NextPage } from 'next'
-
-
+import { Container } from "@mantine/core";
+import type { NextPage } from "next";
+import Banner from "../components/Banner";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      
-    </div>
+    <Container>
+      <Banner />
+    </Container>
   );
-}
+};
 
-export default Home
+export default Home;
