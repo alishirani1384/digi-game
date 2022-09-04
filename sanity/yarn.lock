@@ -4366,9 +4366,9 @@ eslint-plugin-react-hooks@^4.3.0:
   integrity sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==
 
 eslint-plugin-react@^7.28.0:
-  version "7.31.4"
-  resolved "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.31.4.tgz#df79aa4343490cbc438d72b864cd92487de3e4d9"
-  integrity sha512-2ry4HTT+c+hSgpnV2DXj3d5oAmH11KH8HHQwtcfRdq6/+R3nEimvMbwAqK79eb4ZW1/hp8yC5elBusZM6li/Gg==
+  version "7.31.5"
+  resolved "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.31.5.tgz#87c17c82f805257f4f7c96dd484534db2b5089c4"
+  integrity sha512-y7472VAcqns17rsQUk6tQCnqBi+boYjGdYarX022719+wGd1T4U1fOYJ2T2Trd3Od2q5M92e42zJ2uZOGmWamA==
   dependencies:
     array-includes "^3.1.5"
     array.prototype.flatmap "^1.3.0"
@@ -6097,11 +6097,6 @@ js-yaml@^4.1.0:
   integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
   dependencies:
     argparse "^2.0.1"
-
-jsbarcode@^3.8.0:
-  version "3.11.5"
-  resolved "https://registry.npmjs.org/jsbarcode/-/jsbarcode-3.11.5.tgz#390b3efd0271f35b9d68c7b8af6e972445969014"
-  integrity sha512-zv3KsH51zD00I/LrFzFSM6dst7rDn0vIMzaiZFL7qusTjPZiPtxg3zxetp0RR7obmjTw4f6NyGgbdkBCgZUIrA==
 
 jsbn@~0.1.0:
   version "0.1.1"
@@ -8518,14 +8513,6 @@ raw-body@2.5.1:
     http-errors "2.0.0"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
-
-react-barcode@^1.3.2:
-  version "1.4.5"
-  resolved "https://registry.npmjs.org/react-barcode/-/react-barcode-1.4.5.tgz#01d5a7f3c504da1dee10cd1cf5ea252a1dc1f327"
-  integrity sha512-NHMqX//Z28T7vz5cOAD4nRBKn7H6opu6p5XtaiuvYhgivMyR5rOEqPCPd4INPIVxERHDkRiEt5CtOI6d9EgAxQ==
-  dependencies:
-    jsbarcode "^3.8.0"
-    prop-types "^15.6.2"
 
 react-base16-styling@^0.6.0:
   version "0.6.0"

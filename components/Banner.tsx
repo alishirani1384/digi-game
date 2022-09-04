@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import Image from "next/image";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import { urlFor } from "../lib/sanity";
+import { Button } from "@mantine/core";
+import { BannerProp } from "../types";
+import Link from "next/link";
 
-const Banner = () => {
+const Banner = ({ banners }: any) => {
   const [currentSlide, setCurrentSlide] = React.useState<number>(0);
-  const [loaded, setLoaded] = useState<boolean>(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
     },
   });
   return (
@@ -21,34 +20,24 @@ const Banner = () => {
       <div
         ref={sliderRef}
         className="keen-slider relative rounded-lg bg-white my-10">
-        <div className="keen-slider__slide">
-          <Image
-            src="/840.jpg"
-            width="600px"
-            height="300px"
-            layout="responsive"
-            objectFit="cover"
-          />
-        </div>
-        <div className="keen-slider__slide">
-          <Image
-            src="/841.jpg"
-            width="600px"
-            height="300px"
-            layout="responsive"
-            objectFit="cover"
-          />
-        </div>
-        <div className="keen-slider__slide">
-          <Image
-            src="/842.jpg"
-            width="600px"
-            height="300px"
-            layout="responsive"
-            objectFit="cover"
-            alt="image"
-          />
-        </div>
+        {banners.map((banner: BannerProp, index: number) => {
+          return (
+            <div
+              key={index}
+              className="keen-slider__slide relative cursor-pointer">
+              <Link href={"/h"}>
+                <Image
+                  src={urlFor(banner.image.asset._ref).url()}
+                  width="600px"
+                  height="300px"
+                  layout="responsive"
+                  objectFit="cover"
+                  alt={banner.name}
+                />
+              </Link>
+            </div>
+          );
+        })}
         <div
           className="absolute cursor-pointer right-3 top-0 bottom-0 flex items-center hover:backdrop-blur-sm"
           onClick={() => instanceRef.current?.next()}>
