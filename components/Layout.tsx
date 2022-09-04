@@ -1,14 +1,15 @@
+import { Container } from '@mantine/core'
 import React, { PropsWithChildren } from 'react'
 import Navbar from './Navbar'
 
 const Layout = ({children}:PropsWithChildren) => {
   return (
-      <div>
+      <Container>
           <Navbar />
           <main>
               {children}
           </main>
-    </div>
+    </Container>
   )
 }
 

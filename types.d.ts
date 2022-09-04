@@ -7,6 +7,10 @@ export interface BannerProp{
         _type: string;
     }
     name: string;
+    slug: {
+        current: string;
+        _type: string;
+    }
     _createdAt: string;
     _id: string;
     _rev: string;

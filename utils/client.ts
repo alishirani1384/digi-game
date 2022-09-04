@@ -5,4 +5,5 @@ export const client = createClient({
   dataset: "production",
   apiVersion: "2022-04-09",
   useCdn: false,
+  token: process.env.TOKEN,
 });

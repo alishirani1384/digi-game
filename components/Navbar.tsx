@@ -73,7 +73,7 @@ const Navbar = () => {
             </Menu.Dropdown>
           </Menu>
         </div>
-        <div className="flex items-center left-0 right-0 bg-black justify-center space-x-10 h-20 fixed bottom-0 md:static md:bg-inherit">
+        <div className="flex items-center left-0 right-0 bg-black z-10 justify-center space-x-10 h-20 fixed bottom-0 md:static md:bg-inherit">
           {navbarLinks.map((link, index) => {
             return (
               <Link href={link.direction} key={index}>
