@@ -43,9 +43,11 @@ const Navbar = () => {
     },
   ];
   return (
-    <nav>
-      <Container size={"xl"} className="flex items-center justify-between mt-4">
-        <div className="relative" ref={ref}>
+    <nav className="z-50">
+      <Container
+        size={"xl"}
+        className="flex items-center justify-between mt-4 md:mt-2">
+        <div className="relative z-50" ref={ref}>
           <Menu shadow="md" width={200} position="bottom-start" opened={opened}>
             <Menu.Target>
               <Burger
@@ -90,7 +92,7 @@ const Navbar = () => {
         <Link href="/cart">
           <RiShoppingBag3Line
             size={30}
-            className="hover:text-red-500 cursor-pointer"
+            className="hover:text-red-500 cursor-pointer z-50"
           />
         </Link>
       </Container>
