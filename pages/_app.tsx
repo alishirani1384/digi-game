@@ -5,11 +5,12 @@ import { MantineProvider } from "@mantine/core";
 import Layout from "../components/Layout";
 import "keen-slider/keen-slider.min.css";
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Page title</title>
+        <title>Digi-games Buy</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"

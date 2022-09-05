@@ -44,5 +44,10 @@ export default {
           input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
     },
+    {
+      title: 'Price',
+      name: 'price',
+      type:'number'
+    }
   ],
 };
