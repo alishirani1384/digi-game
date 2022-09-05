@@ -17,6 +17,10 @@ a {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+*>* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
 h2{
   @apply text-2xl
 }
