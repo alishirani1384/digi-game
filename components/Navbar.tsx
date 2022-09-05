@@ -50,14 +50,12 @@ const Navbar = () => {
         <div className="relative z-50" ref={ref}>
           <Menu shadow="md" width={200} position="bottom-start" opened={opened}>
             <Menu.Target>
-              <ActionIcon>
                 <Burger
                   ref={outRef}
                   opened={opened}
                   onClick={() => setOpened((pre) => !pre)}
                   color={hovered ? "rgb(239 68 68)" : ""}
                 />
-              </ActionIcon>
             </Menu.Target>
             <Menu.Dropdown>
               <Link href="/login">
@@ -92,14 +90,12 @@ const Navbar = () => {
           })}
         </div>
         <Link href="/cart">
-          <ActionIcon size={35}>
             <Indicator color="red" position="top-end" size={25} withBorder label='3'>
               <RiShoppingBag3Line
                 size={33}
                 className="hover:text-red-500 cursor-pointer z-50"
               />
             </Indicator>
-          </ActionIcon>
         </Link>
       </Container>
     </nav>

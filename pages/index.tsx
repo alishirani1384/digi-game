@@ -6,7 +6,7 @@ import { client } from '../utils/client';
 
 
 const Home: NextPage<any>= ({ banners,games }) => {
-  console.log(games);
+  
   
   return (
     <Container>

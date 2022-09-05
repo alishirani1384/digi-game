@@ -7,7 +7,8 @@ import { useWindowScroll } from '@mantine/hooks';
 const Layout = ({ children }: PropsWithChildren) => {
   const [scroll, scrollTo] = useWindowScroll();
   return (
-    <Container>
+    <div>
+      <Container>
       <Navbar />
       <main>{children}</main>
       <Affix position={{ bottom: 100, right: 50 }}>
@@ -23,6 +24,8 @@ const Layout = ({ children }: PropsWithChildren) => {
         </Transition>
       </Affix>
     </Container>
+    </div>
+    
   );
 }
 

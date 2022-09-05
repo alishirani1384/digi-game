@@ -7,7 +7,6 @@ import { PortableText } from "@portabletext/react";
 import {FaRegHeart} from 'react-icons/fa'
 
 const GamePage = ({ game }: any) => {
-  console.log(game);
 
   return (
     <>
