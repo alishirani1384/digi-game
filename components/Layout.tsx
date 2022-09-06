@@ -18,7 +18,8 @@ const Layout = ({ children }: PropsWithChildren) => {
           {(transitionStyles) => (
             <Button
               leftIcon={<FaArrowUp size={16}/>}
-              style={transitionStyles}
+                style={transitionStyles}
+                color='orange'
               onClick={() => scrollTo({ y: 0 })}>
               {t.scrolltotop}
             </Button>

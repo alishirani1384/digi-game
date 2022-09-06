@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withVideos = require("next-videos");
+const nextConfig =withVideos( {
   i18n: {
     locales: ['en-US', 'fa-IR'],
     defaultLocale:'en-US'
@@ -9,6 +10,6 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
   },
-};
+});
 
 module.exports = nextConfig

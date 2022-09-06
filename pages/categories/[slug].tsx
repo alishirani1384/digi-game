@@ -1,18 +1,43 @@
-import { BackgroundImage, Badge, Button, Center, Container, Group, Spoiler } from "@mantine/core";
+import {
+  BackgroundImage,
+  Badge,
+  Button,
+  Center,
+  Container,
+  Group,
+  Spoiler,
+  SimpleGrid,
+  Modal,
+} from "@mantine/core";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { urlFor } from "../../lib/sanity";
 import { client } from "../../utils/client";
 import { PortableText } from "@portabletext/react";
 import { FaRegHeart, FaSteam, FaDownload, FaFireAlt } from "react-icons/fa";
-import {RiShoppingBag3Line} from 'react-icons/ri'
+import { RiShoppingBag3Line } from "react-icons/ri";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 const GamePage = ({ game }: any) => {
   console.log(game);
-  
+  const [opened, setOpened] = useState(false);
+  const [selected,setSelected]=useState()
+
+  function handleClick(e:any) {
+    setSelected(e.target.src)
+    setOpened(true)
+    console.log(selected);
+    
+  }
+
   return (
     <>
       <div>
+        <Modal
+          opened={opened}
+          onClose={() => setOpened(false)}>
+          <img src={selected} className='object-cover w-full rounded'/>
+        </Modal>
         <BackgroundImage
           src={urlFor(game[0].banner.asset._ref).url()}
           className="h-60 absolute top-0 left-0">
@@ -64,12 +89,43 @@ const GamePage = ({ game }: any) => {
         <h1 className="text-center my-5">${game[0].price}</h1>
         <Container size="xs" className="flex space-x-3">
           <button className="bg-[#FF5400] rounded-lg p-4">
-            <RiShoppingBag3Line size={35} color="white"/>
+            <RiShoppingBag3Line size={35} color="white" />
           </button>
           <button className="w-full p-4 bg-[#FF5400] text-white font-bold text-lg rounded-lg">
             Shop now
           </button>
         </Container>
+        <div className="my-10">
+          <h2>Visuals</h2>
+          <video
+            src={game[0].video}
+            // eslint-disable-next-line react/no-unknown-property
+            controls={true}
+            poster={urlFor(game[0].banner.asset._ref).url()}
+          />
+          <Container className="my-5 ">
+            <SimpleGrid cols={4}>
+              {game[0].images.map(
+                (
+                  image: { asset: { _ref: SanityImageSource } },
+                  index: React.Key | null | undefined
+                ) => (
+                  <div key={index}>
+                    <Image
+                      onClick={handleClick}
+                      className="rounded"
+                      layout="responsive"
+                      src={urlFor(image.asset._ref).url()}
+                      width="200px"
+                      height="200px"
+                      alt="game-image"
+                    />
+                  </div>
+                )
+              )}
+            </SimpleGrid>
+          </Container>
+        </div>
         <div className="my-10">
           <Spoiler maxHeight={240} showLabel="Show More" hideLabel="Hide">
             <PortableText value={game[0].description} />
@@ -81,7 +137,14 @@ const GamePage = ({ game }: any) => {
 };
 
 export async function getServerSideProps({ params }: any) {
-  const query = `*[_type =='games' && slug.current == $slug]`;
+  const query = `*[_type =='games' && slug.current == $slug]{
+    title,
+    banner{asset{_ref}},
+   images,
+   price,
+   description,
+  "video": video.asset->url
+  }`;
   const game = await client.fetch(query, {
     slug: params?.slug,
   });

@@ -22,11 +22,9 @@ const Navbar = () => {
   const {t} = useLanguage();
   const router=useRouter()
   const setLanguageFa = () => {
-    document.documentElement.dir='rtl'
     router.push("/", "/", { locale: "fa-IR" });
   }
   const setLanguageEn = () => {
-    document.documentElement.dir='ltr'
     router.push("/", "/", { locale: "en-US" });
   }
   
