@@ -3,9 +3,11 @@ import React, { PropsWithChildren } from 'react'
 import Navbar from './Navbar';
 import {FaArrowUp} from 'react-icons/fa'
 import { useWindowScroll } from '@mantine/hooks';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Layout = ({ children }: PropsWithChildren) => {
   const [scroll, scrollTo] = useWindowScroll();
+  const { t } = useLanguage();
   return (
     <div>
       <Container>
@@ -18,7 +20,7 @@ const Layout = ({ children }: PropsWithChildren) => {
               leftIcon={<FaArrowUp size={16}/>}
               style={transitionStyles}
               onClick={() => scrollTo({ y: 0 })}>
-              Scroll to top
+              {t.scrolltotop}
             </Button>
           )}
         </Transition>

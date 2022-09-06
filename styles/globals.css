@@ -13,13 +13,9 @@ a {
   text-decoration: none;
 }
 
-* {
+*{
+  font-family: Vazirmatn, sans-serif;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-}
-*>* {
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 h2{
   @apply text-2xl

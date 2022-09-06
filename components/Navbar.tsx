@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { ActionIcon, Burger, Indicator } from "@mantine/core";
+import { Burger, Indicator } from "@mantine/core";
+import { useRouter } from "next/router";
 import { Container, Menu } from "@mantine/core";
 import {
   FaDesktop,
@@ -13,33 +14,45 @@ import { SiNintendoswitch } from "react-icons/si";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { useClickOutside, useHover } from "@mantine/hooks";
 import Link from "next/link";
+import { useLanguage } from "../hooks/useLanguage";
+
+
 
 const Navbar = () => {
+  const {t} = useLanguage();
+  const router=useRouter()
+  const setLanguageFa = () => {
+    document.documentElement.dir='rtl'
+    router.push("/", "/", { locale: "fa-IR" });
+  }
+  const setLanguageEn = () => {
+    document.documentElement.dir='ltr'
+    router.push("/", "/", { locale: "en-US" });
+  }
+  
   const [opened, setOpened] = useState<boolean>(false);
   const { hovered, ref } = useHover();
   const outRef = useClickOutside(() => setOpened(false));
   const navbarLinks = [
     {
       direction: "/pc",
-      name: "PC",
+      name: t.navbar.pc,
       icon: <FaDesktop size={25} className="group-hover:text-red-500" />,
     },
     {
       direction: "/playstation",
-      name: "Playstation",
+      name: t.navbar.playstation,
       icon: <FaPlaystation size={25} className="group-hover:text-red-500" />,
     },
     {
       direction: "/xbox",
-      name: "Xbox",
+      name: t.navbar.xbox,
       icon: <FaXbox size={25} className="group-hover:text-red-500" />,
     },
     {
       direction: "/nintendo",
-      name: "Nintendo",
-      icon: (
-        <SiNintendoswitch size={25} className="group-hover:text-red-500" />
-      ),
+      name: t.navbar.nintendo,
+      icon: <SiNintendoswitch size={25} className="group-hover:text-red-500" />,
     },
   ];
   return (
@@ -62,15 +75,22 @@ const Navbar = () => {
                 <Menu.Item
                   icon={<FaRegUserCircle size={30} />}
                   className="font-bold text-lg">
-                  Log In
+                  {t.menu.login}
                 </Menu.Item>
               </Link>
               <Menu.Divider />
+              <Menu.Item className="font-bold text-lg" onClick={setLanguageEn}>
+                English - en
+              </Menu.Item>
+              <Menu.Item className="font-bold text-lg" onClick={setLanguageFa}>
+                فارسی - fa
+              </Menu.Item>
+              <Menu.Divider />
               <Menu.Item icon={<FaRegSun size={20} />} className="font-[500]">
-                Light Theme
+                {t.menu.lightTheme}
               </Menu.Item>
               <Menu.Item icon={<FaRegMoon size={20} />} className="font-[500]">
-                Dark Theme
+                {t.menu.darkTheme}
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
@@ -80,7 +100,7 @@ const Navbar = () => {
             return (
               <Link href={link.direction} key={index}>
                 <a className="flex space-x-3 items-center group cursor-pointer">
-                  <span className="hidden md:inline font-bold group-hover:inline group-hover:text-red-500">
+                  <span className="hidden md:inline ml-2 font-bold group-hover:inline group-hover:text-red-500">
                     {link.name}
                   </span>
                   {link.icon}
