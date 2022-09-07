@@ -4,9 +4,33 @@ import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import Layout from "../components/Layout";
 import "keen-slider/keen-slider.min.css";
+import { useRouter } from 'next/router';
+import {useState,useEffect} from 'react'
+import Loading from "../components/Loading";
 
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const handleStart = (url: string) => {
+      return url!==router.asPath && setLoading(true)
+    }
+    const handleComplete = (url: string) => {
+      return url===router.asPath && setLoading(false) 
+    }
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete',handleComplete)
+    router.events.on('routeChangeError', handleComplete)
+    
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    }
+  }, [router])
+
   return (
     <>
       <Head>
@@ -28,7 +52,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           colorScheme: "dark",
         }}>
         <Layout>
-          <Component {...pageProps} />
+          {
+            loading?<Loading/>: <Component {...pageProps} />
+          }
         </Layout>
       </MantineProvider>
     </>

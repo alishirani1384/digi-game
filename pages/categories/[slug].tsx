@@ -44,7 +44,7 @@ const GamePage = ({ game }: any) => {
           <Center className="absolute -bottom-1/3 left-1/2 -translate-x-2/4">
             <Image
               src={urlFor(game[0].images[0].asset._ref).url()}
-              width="200px"
+              width="350px"
               height="200px"
               className="rounded-lg"
               objectFit="cover"

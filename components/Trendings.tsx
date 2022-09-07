@@ -26,12 +26,13 @@ const Trendings = ({ games }: any) => {
                 <div className="cursor-pointer relative">
                   <Image
                     src={urlFor(game.images[0].asset._ref).url()}
-                    width="250px"
+                    width="200px"
                     layout="responsive"
-                    height="250px"
+                    height="100px"
                     objectFit="cover"
                     className="rounded-lg"
                     alt={game.name}
+                    objectPosition='center center'
                   />
                   <p className="absolute bottom-1 right-3 text-xl text-white">
                     ${game.price}
