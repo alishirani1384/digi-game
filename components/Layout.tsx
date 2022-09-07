@@ -13,7 +13,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       <Container>
       <Navbar />
       <main>{children}</main>
-      <Affix position={{ bottom: 100, right: 50 }}>
+      <Affix position={{ bottom: 90, right: 50 }}>
         <Transition transition="slide-up" mounted={scroll.y > 0}>
           {(transitionStyles) => (
             <Button

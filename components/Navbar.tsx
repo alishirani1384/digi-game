@@ -15,6 +15,7 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import { useClickOutside, useHover } from "@mantine/hooks";
 import Link from "next/link";
 import { useLanguage } from "../hooks/useLanguage";
+import { useStore } from "../store/useStore";
 
 
 
@@ -31,6 +32,7 @@ const Navbar = () => {
   const [opened, setOpened] = useState<boolean>(false);
   const { hovered, ref } = useHover();
   const outRef = useClickOutside(() => setOpened(false));
+  const cartItems = useStore((state:any) => state.cartItems)
   const navbarLinks = [
     {
       direction: "/pc",
@@ -114,7 +116,7 @@ const Navbar = () => {
             size={25}
             withBorder
             className="z-50"
-            label="3">
+            label={`${cartItems.length}`}>
             <RiShoppingBag3Line
               size={33}
               className="hover:text-red-500 text-[#C1C2C5] cursor-pointer z-50 overflow-visible"

@@ -22,7 +22,8 @@
     "next-videos": "1.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0"
+    "react-icons": "^4.4.0",
+    "zustand": "^4.1.1"
   },
   "devDependencies": {
     "@types/node": "18.7.14",

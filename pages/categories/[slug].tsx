@@ -17,6 +17,8 @@ import { PortableText } from "@portabletext/react";
 import { FaRegHeart, FaSteam, FaDownload, FaFireAlt } from "react-icons/fa";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { useStore } from "../../store/useStore";
+
 
 const GamePage = ({ game }: any) => {
   console.log(game);
@@ -29,7 +31,10 @@ const GamePage = ({ game }: any) => {
     console.log(selected);
     
   }
-
+  const addTocart=useStore((state:any)=>state.addToCart)
+  function addItem() {
+    addTocart(game[0])
+  }
   return (
     <>
       <div>
@@ -88,7 +93,7 @@ const GamePage = ({ game }: any) => {
         </Group>
         <h1 className="text-center my-5">${game[0].price}</h1>
         <Container size="xs" className="flex space-x-3">
-          <button className="bg-[#FF5400] rounded-lg p-4">
+          <button className="bg-[#FF5400] rounded-lg p-4" onClick={addItem}>
             <RiShoppingBag3Line size={35} color="white" />
           </button>
           <button className="w-full p-4 bg-[#FF5400] text-white font-bold text-lg rounded-lg">
