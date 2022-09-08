@@ -5,13 +5,22 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 const Cart = () => {
   return (
     <div className="my-10">
-      <Container size="sm">
+      <div className="mx-auto">
         <Stepper color="orange" size="sm" active={0}>
-          <Stepper.Step label="Shopping cart" />
-          <Stepper.Step label="Payment" />
-          <Stepper.Step label="Game activation" />
+          <Stepper.Step
+            label="Shopping cart"
+            className="flex-col space-y-2 md:flex-row md:space-y-0"
+          />
+          <Stepper.Step
+            label="Payment"
+            className="flex-col md:space-y-0 space-y-2 md:flex-row"
+          />
+          <Stepper.Step
+            label="Game activation"
+            className="flex-col md:space-y-0 space-y-2 md:flex-row"
+          />
         </Stepper>
-      </Container>
+      </div>
       <div className="my-10">
         <h2>Cart</h2>
         <div className="bg-gray-800 w-full min-h-[40vh] h-full my-3 rounded-md flex justify-center">
@@ -41,7 +50,9 @@ const Cart = () => {
             <h2 className="flex justify-between">
               Total <span className="text-white">$116</span>
             </h2>
-            <button className="w-full bg-orange-500 p-3 rounded-lg text-white font-bold">Go to payment</button>
+            <button className="w-full bg-orange-500 p-3 rounded-lg text-white font-bold">
+              Go to payment
+            </button>
           </div>
         </div>
       </div>
