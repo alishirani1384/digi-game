@@ -1,7 +1,6 @@
 import {
   BackgroundImage,
   Badge,
-  Button,
   Center,
   Container,
   Group,
@@ -18,13 +17,14 @@ import { FaRegHeart, FaSteam, FaDownload, FaFireAlt } from "react-icons/fa";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { useStore } from "../../store/useStore";
+import { useRouter } from "next/router";
 
 
 const GamePage = ({ game }: any) => {
   console.log(game);
   const [opened, setOpened] = useState(false);
   const [selected,setSelected]=useState()
-
+  const router=useRouter()
   function handleClick(e:any) {
     setSelected(e.target.src)
     setOpened(true)
@@ -34,6 +34,10 @@ const GamePage = ({ game }: any) => {
   const addTocart=useStore((state:any)=>state.addToCart)
   function addItem() {
     addTocart(game[0])
+  }
+  function addToCartItems() {
+    addTocart(game[0])
+    router.push('/cart')
   }
   return (
     <>
@@ -96,7 +100,7 @@ const GamePage = ({ game }: any) => {
           <button className="bg-[#FF5400] rounded-lg p-4" onClick={addItem}>
             <RiShoppingBag3Line size={35} color="white" />
           </button>
-          <button className="w-full p-4 bg-[#FF5400] text-white font-bold text-lg rounded-lg">
+          <button className="w-full p-4 bg-[#FF5400] text-white font-bold text-lg rounded-lg" onClick={addToCartItems}>
             Shop now
           </button>
         </Container>
