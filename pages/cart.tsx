@@ -31,7 +31,7 @@ const Cart = () => {
       </div>
       <div className="my-10">
         <h2>Cart</h2>
-        <div className="bg-gray-800 w-full min-h-[40vh] h-full my-3 rounded-md flex flex-col justify-center">
+        <div className="bg-gray-800 w-full min-h-[40vh] h-full my-3 rounded-md flex flex-col justify-start">
           {items.length > 0 ? items.map((item:any, index:number) => <CartItem key={index} image={item.images[0].asset._ref} name={item.title} />):<ClearCart/>}
         </div>
       </div>

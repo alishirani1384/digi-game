@@ -3,9 +3,7 @@ import React from 'react'
 
 const Loading = () => {
   return (
-    <div>
-      <LoadingOverlay overlayBlur={2} visible={true} />
-    </div>
+      <LoadingOverlay loaderProps={{ size: 'md', color: 'pink', variant: 'bars' }} overlayBlur={2} visible={true} />
   );
 }
 

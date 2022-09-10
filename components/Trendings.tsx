@@ -9,9 +9,9 @@ const Trendings = ({ games }: any) => {
   const { t } = useLanguage();
   return (
     <div className="mb-20">
-      <div className='relative'>
-        <Divider my="xs" size={2}/>
-        <h1 className='absolute flex items-center justify-center w-full -top-5'>{t.trendings}</h1>
+      <div className='flex justify-between items-center'>
+        <h1>{t.trendings}</h1>
+        <button className='bg-gray-600 rounded-full p-2 hover:bg-gray-700 text-white'>View all</button>
       </div>
       <Grid columns={12} className="mx-auto my-5">
         {games.map((game: any, index: number) => {

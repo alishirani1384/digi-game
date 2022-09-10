@@ -17,11 +17,13 @@ const CartItem = ({ image, name }:props) => {
             width="200px"
             height="100%"
             objectFit="cover"
-                      className="rounded-lg"
-                      alt={name}
+            className="rounded-lg"
+            alt={name}
           />
           <div className="flex flex-col justify-around ml-3">
-            <h3>{name}</h3>
+            <h3>
+              {name.length > 11 ? <span>{name.slice(0, 11)}...</span> : name}
+            </h3>
             <FaRegTrashAlt size={20} />
           </div>
         </div>
