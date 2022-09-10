@@ -48,9 +48,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           colorScheme: "dark",
         }}>
         <Layout>
-          {
-            loading?<Loading/>: <Component {...pageProps} />
-          }
+          {loading&&<Loading/>}
+            <Component {...pageProps} />
         </Layout>
       </MantineProvider>
     </>
