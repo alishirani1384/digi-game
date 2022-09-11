@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Grid } from '@mantine/core';
+import { Grid } from '@mantine/core';
 import Image from 'next/image';
 import { urlFor } from '../lib/sanity';
 import Link from 'next/link';

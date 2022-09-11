@@ -7,8 +7,6 @@ import {
   FaPlaystation,
   FaXbox,
   FaRegUserCircle,
-  FaRegSun,
-  FaRegMoon,
 } from "react-icons/fa";
 import { SiNintendoswitch } from "react-icons/si";
 import { RiShoppingBag3Line } from "react-icons/ri";
@@ -16,6 +14,8 @@ import { useClickOutside, useHover } from "@mantine/hooks";
 import Link from "next/link";
 import { useLanguage } from "../hooks/useLanguage";
 import { useStore } from "../store/useStore";
+import { useLoginStore } from "../store/useLoginStore";
+import LoginModal from "./LoginModal";
 
 
 
@@ -32,7 +32,13 @@ const Navbar = () => {
   const [opened, setOpened] = useState<boolean>(false);
   const { hovered, ref } = useHover();
   const outRef = useClickOutside(() => setOpened(false));
-  const cartItems = useStore((state:any) => state.cartItems)
+  const cartItems = useStore((state: any) => state.cartItems)
+  
+  const handleModal = useLoginStore((state: any) => state.openModal);
+  function handle() {
+    handleModal()
+  }
+
   const navbarLinks = [
     {
       direction: "/pc",
@@ -61,6 +67,7 @@ const Navbar = () => {
         size={"xl"}
         className="flex items-center justify-between mt-4 md:mt-2">
         <div className="relative z-50" ref={ref}>
+          <LoginModal/>
           <Menu shadow="md" width={200} position="bottom-start" opened={opened}>
             <Menu.Target>
               <Burger
@@ -71,26 +78,21 @@ const Navbar = () => {
               />
             </Menu.Target>
             <Menu.Dropdown>
-              <Link href="/login">
+              
                 <Menu.Item
                   icon={<FaRegUserCircle size={30} />}
-                  className="font-bold text-lg">
+                className="font-bold text-lg"
+              onClick={handle}
+              >
                   {t.menu.login}
                 </Menu.Item>
-              </Link>
+              
               <Menu.Divider />
               <Menu.Item className="font-bold text-lg" onClick={setLanguageEn}>
                 English - en
               </Menu.Item>
               <Menu.Item className="font-bold text-lg" onClick={setLanguageFa}>
                 فارسی - fa
-              </Menu.Item>
-              <Menu.Divider />
-              <Menu.Item icon={<FaRegSun size={20} />} className="font-[500]">
-                {t.menu.lightTheme}
-              </Menu.Item>
-              <Menu.Item icon={<FaRegMoon size={20} />} className="font-[500]">
-                {t.menu.darkTheme}
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
