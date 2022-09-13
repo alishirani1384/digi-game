@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const withVideos = require("next-videos");
-const nextConfig =withVideos( {
+const nextConfig = withVideos({
   i18n: {
-    locales: ['en-US', 'fa-IR'],
-    defaultLocale:'en-US'
+    locales: ["en-US", "fa-IR"],
+    defaultLocale: "en-US",
   },
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["cdn.sanity.io"],
+    domains: ["cdn.sanity.io", "avatars.dicebear.com"],
   },
 });
 

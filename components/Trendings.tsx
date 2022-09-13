@@ -19,14 +19,14 @@ const Trendings = ({ games }: any) => {
       
     },
   });
-  console.log(width);
+  
   
   return (
     <div className="mb-10">
       <div className="flex justify-between items-center">
         <h1>{t.trendings}</h1>
-        <button className="bg-gray-600 rounded-full p-2 hover:bg-gray-700 text-white">
-          View all
+        <button className="bg-gray-600 font-['Vazir'] rounded-full p-2 hover:bg-gray-700 text-white">
+          {t.viewAll}
         </button>
       </div>
       {width<600?<div ref={sliderRef} className="keen-slider mt-4">

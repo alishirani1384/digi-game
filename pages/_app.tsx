@@ -14,10 +14,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const handleStart = (url: string) => {
-      return url!==router.asPath && setLoading(true)
+      console.log(url);
+      if(url!==router.asPath||url!==`/fa-IR`||url!==`/fa-IR/${router.asPath}`) return setLoading(true)
+      // return url !== router.asPath && setLoading(true)
     }
     const handleComplete = (url: string) => {
-      return url===router.asPath && setLoading(false) 
+      if (
+        url === router.asPath ||
+        url === `/fa-IR` ||
+        url === `/fa-IR${router.asPath}`
+      )
+        return setLoading(false);
+      // return url===router.asPath && setLoading(false) 
     }
 
     router.events.on('routeChangeStart', handleStart);
@@ -34,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Digi-games Buy</title>
+        <title>Digi-games</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"

@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Banner from "../components/Banner";
 import Support from "../components/Support";
 import Trendings from "../components/Trendings";
+import Users from "../components/Users";
 import { client } from '../utils/client';
 
 
@@ -16,7 +17,7 @@ const Home: NextPage<any>= ({ banners,games }) => {
       <Trendings games={games} />
       <Support/>
       {/* User comments */}
-
+      <Users/>
       {/* Bestsellers */}
 
       {/* Gamer Reveiws */}

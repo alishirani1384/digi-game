@@ -9,7 +9,7 @@ const Layout = ({ children }: PropsWithChildren) => {
   const [scroll, scrollTo] = useWindowScroll();
   const { t } = useLanguage();
   return (
-    <div>
+    <div className='min-h-screen'>
       <Container>
       <Navbar />
       <main>{children}</main>
