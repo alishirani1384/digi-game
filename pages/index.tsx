@@ -1,6 +1,7 @@
 import { Container } from "@mantine/core";
 import type { NextPage } from "next";
 import Banner from "../components/Banner";
+import Support from "../components/Support";
 import Trendings from "../components/Trendings";
 import { client } from '../utils/client';
 
@@ -9,10 +10,11 @@ const Home: NextPage<any>= ({ banners,games }) => {
   
   
   return (
-    <Container>
+    <div>
       <Banner banners={banners} />
       {/* Trendings */}
       <Trendings games={games} />
+      <Support/>
       {/* User comments */}
 
       {/* Bestsellers */}
@@ -20,7 +22,7 @@ const Home: NextPage<any>= ({ banners,games }) => {
       {/* Gamer Reveiws */}
 
       {/* Categories */}
-    </Container>
+    </div>
   );
 };
 
