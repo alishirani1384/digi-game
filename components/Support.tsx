@@ -7,7 +7,7 @@ import { useLanguage } from "../hooks/useLanguage";
 const Support = () => {
   const {t} = useLanguage()
   return (
-    <div className="w-full flex items-center justify-between p-3 my-20">
+    <div className="w-full flex items-center justify-between my-20">
       <div className="flex items-center flex-col text-center md:flex-row">
         <BiSupport color="#FF5400" size={50} />
         <div className="flex-col items-center">
