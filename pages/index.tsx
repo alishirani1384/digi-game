@@ -4,10 +4,16 @@ import Banner from "../components/Banner";
 import Support from "../components/Support";
 import Trendings from "../components/Trendings";
 import Users from "../components/Users";
+import { BannerProp } from "../types";
 import { client } from '../utils/client';
 
+interface Ihome{
+  banners: BannerProp[],
+  games:any
+}
 
-const Home: NextPage<any>= ({ banners,games }) => {
+const Home: NextPage<Ihome>= ({ banners,games }) => {
+  console.log(games);
   
   
   return (
@@ -28,8 +34,35 @@ const Home: NextPage<any>= ({ banners,games }) => {
 };
 
 export async function getServerSideProps() {
-  const banners = await client.fetch(`*[_type == "banners"]`);
-  const games = await client.fetch(`*[_type == "games"]`);
+  const bannerQuery = `*[_type=="banners"]{
+    name,
+    image{
+      asset{
+        _ref
+      }
+    }
+  }`;
+  const gamesQuery =`*[_type=="games"]{
+    banner{
+      asset{
+        _ref
+      }
+    },
+    description,
+    images,
+    price,
+    slug{
+      current
+    },
+    title,
+    video{
+      asset{
+        _ref
+      }
+    }
+  }`
+  const banners = await client.fetch(bannerQuery);
+  const games = await client.fetch(gamesQuery);
   return {
     props: {
       banners,

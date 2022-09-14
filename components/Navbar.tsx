@@ -45,22 +45,22 @@ const Navbar = () => {
     {
       direction: "/pc",
       name: t.navbar.pc,
-      icon: <FaDesktop size={25} className="group-hover:text-red-500" />,
+      icon: <FaDesktop size={25} className="group-hover:text-white" />,
     },
     {
       direction: "/playstation",
       name: t.navbar.playstation,
-      icon: <FaPlaystation size={25} className="group-hover:text-red-500" />,
+      icon: <FaPlaystation size={25} className="group-hover:text-white" />,
     },
     {
       direction: "/xbox",
       name: t.navbar.xbox,
-      icon: <FaXbox size={25} className="group-hover:text-red-500" />,
+      icon: <FaXbox size={25} className="group-hover:text-white" />,
     },
     {
       direction: "/nintendo",
       name: t.navbar.nintendo,
-      icon: <SiNintendoswitch size={25} className="group-hover:text-red-500" />,
+      icon: <SiNintendoswitch size={25} className="group-hover:text-white" />,
     },
   ];
   return (
@@ -69,7 +69,7 @@ const Navbar = () => {
         size={"xl"}
         className="flex items-center justify-between mt-4 md:mt-2">
         <div className="relative z-50" ref={ref}>
-          <LoginModal/>
+          <LoginModal />
           <Menu shadow="md" width={200} position="bottom-start" opened={opened}>
             <Menu.Target>
               <Burger
@@ -80,15 +80,13 @@ const Navbar = () => {
               />
             </Menu.Target>
             <Menu.Dropdown>
-              
-                <Menu.Item
-                  icon={<FaRegUserCircle size={30} />}
+              <Menu.Item
+                icon={<FaRegUserCircle size={30} />}
                 className="font-bold text-lg"
-              onClick={handle}
-              >
-                  {t.menu.login}
-                </Menu.Item>
-              
+                onClick={handle}>
+                {t.menu.login}
+              </Menu.Item>
+
               <Menu.Divider />
               <Menu.Item className="font-bold text-lg" onClick={setLanguageEn}>
                 English - en
@@ -98,20 +96,6 @@ const Navbar = () => {
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
-        </div>
-        <div className="flex hidden items-center z-10 justify-center space-x-10 h-20 md:static md:bg-inherit">
-          {navbarLinks.map((link, index) => {
-            return (
-              <Link href={link.direction} key={index}>
-                <a className="flex space-x-3 items-center group cursor-pointer">
-                  <span className="hidden md:inline ml-2 font-bold group-hover:inline group-hover:text-red-500">
-                    {link.name}
-                  </span>
-                  {link.icon}
-                </a>
-              </Link>
-            );
-          })}
         </div>
         <Link href="/cart" className="z-50">
           <Indicator
@@ -127,6 +111,22 @@ const Navbar = () => {
             />
           </Indicator>
         </Link>
+      </Container>
+      <Container size={'sm'}>
+        <div className="flex bg-orange-700 mt-4 rounded-full items-center p-4 z-10 justify-center space-x-10 md:bg-inherit">
+          {navbarLinks.map((link, index) => {
+            return (
+              <Link href={link.direction} key={index}>
+                <a className="flex space-x-3 items-center group cursor-pointer">
+                  <span className="hidden md:inline ml-2 font-bold ">
+                    {link.name}
+                  </span>
+                  {link.icon}
+                </a>
+              </Link>
+            );
+          })}
+        </div>
       </Container>
     </nav>
   );

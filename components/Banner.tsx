@@ -4,9 +4,12 @@ import Image from "next/image";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import { urlFor } from "../lib/sanity";
 import { BannerProp } from "../types";
-import Link from "next/link";
 
-const Banner = ({ banners }: any) => {
+interface Ibanner{
+  banners:BannerProp[]
+}
+
+const Banner = ({ banners }:Ibanner) => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -24,7 +27,7 @@ const Banner = ({ banners }: any) => {
             <div
               key={index}
               className="keen-slider__slide relative cursor-pointer">
-              <Link href={`/categories/game?=${banner.slug.current}`}>
+              <div>
                 <Image
                   src={urlFor(banner.image.asset._ref).url()}
                   width="600px"
@@ -33,7 +36,7 @@ const Banner = ({ banners }: any) => {
                   objectFit="cover"
                   alt={banner.name}
                 />
-              </Link>
+              </div>
             </div>
           );
         })}

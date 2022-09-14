@@ -3,11 +3,11 @@ import React from "react";
 import { urlFor } from "../lib/sanity";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { Divider, Select } from "@mantine/core";
-interface props{
-    image: any,
-    name:any
+interface Icartitem{
+    image: string,
+    name:string
 }
-const CartItem = ({ image, name }:props) => {
+const CartItem = ({ image, name }:Icartitem) => {
   return (
     <div className="w-full p-4">
       <div className="flex items-center justify-between">

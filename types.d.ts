@@ -1,19 +1,39 @@
-export interface BannerProp{
+export interface BannerProp {
+    name:string
     image: {
         asset: {
             _ref: string;
-            _type: string;
         }
-        _type: string;
     }
-    name: string;
+}
+export interface GamesProps{
+    banner: {
+        asset: {
+            _ref: string;
+       } 
+    }
+    description: any[]
+    images: any[]
+    price: number
     slug: {
-        current: string;
-        _type: string;
+       current:string
+    } 
+    title: string
+    video:{
+        asset: {
+        _ref:any
     }
-    _createdAt: string;
-    _id: string;
-    _rev: string;
-    _type: string;
-    _updatedAt: string;
+    }
+}
+export interface GameProps {
+  banner: {
+    asset: {
+      _ref: string;
+    };
+  };
+  description: any[];
+  images: any[];
+  price: number;
+    title: string;
+    video:string
 }

@@ -6,10 +6,16 @@ import Link from 'next/link';
 import { useLanguage } from '../hooks/useLanguage';
 import { useViewportSize } from '@mantine/hooks';
 import { useKeenSlider } from "keen-slider/react";
+import { GamesProps } from '../types';
+interface Itrending{
+  games: GamesProps[]
+}
 
-const Trendings = ({ games }: any) => {
+const Trendings = ({ games }: Itrending) => {
   const { t } = useLanguage();
   const { width } = useViewportSize();
+  console.log(games);
+  
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",
     slides: {
@@ -30,7 +36,7 @@ const Trendings = ({ games }: any) => {
         </button>
       </div>
       {width<600?<div ref={sliderRef} className="keen-slider mt-4">
-        {games.map((game: any, index: number) => {
+        {games.map((game: GamesProps, index: number) => {
           return (
             <div key={index} className="keen-slider__slide rounded-lg">
               <Link href={`/categories/${game.slug.current}`}>
@@ -42,7 +48,7 @@ const Trendings = ({ games }: any) => {
                     height="150px"
                     objectFit="cover"
                     className="rounded-lg"
-                    alt={game.name}
+                    alt={game.title}
                     objectPosition="center center"
                   />
                   <p className="absolute bottom-1 right-3 text-xl text-white">

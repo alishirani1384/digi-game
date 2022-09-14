@@ -1,13 +1,14 @@
-import { Container, Stepper } from "@mantine/core";
+import { Stepper } from "@mantine/core";
 import React from "react";
-import { RiShoppingBag3Line } from "react-icons/ri";
 import CartItem from "../components/CartItem";
 import ClearCart from "../components/ClearCart";
+import { useLanguage } from "../hooks/useLanguage";
 import { useStore } from "../store/useStore";
 
 const Cart = () => {
   const cartItems = useStore((state: any) => state.cartItems)
-  const items:any = Array.from(new Set(cartItems))
+  const items: any = Array.from(new Set(cartItems))
+  const {t} = useLanguage()
   console.log(items);
   
   
@@ -16,21 +17,21 @@ const Cart = () => {
       <div className="mx-auto">
         <Stepper color="orange" size="sm" active={0}>
           <Stepper.Step
-            label="Shopping cart"
+            label={t.shopcart}
             className="flex-col space-y-2 md:flex-row md:space-y-0"
           />
           <Stepper.Step
-            label="Payment"
+            label={t.payment}
             className="flex-col md:space-y-0 space-y-2 md:flex-row"
           />
           <Stepper.Step
-            label="Game activation"
+            label={t.active}
             className="flex-col md:space-y-0 space-y-2 md:flex-row"
           />
         </Stepper>
       </div>
       <div className="my-10">
-        <h2>Cart</h2>
+        <h2>{t.cart}</h2>
         <div className="bg-gray-800 w-full min-h-[40vh] h-full my-3 rounded-md flex flex-col justify-start">
           {items.length > 0 ? items.map((item:any, index:number) => <CartItem key={index} image={item.images[0].asset._ref} name={item.title} />):<ClearCart/>}
         </div>

@@ -9,7 +9,7 @@ import {
   Modal,
 } from "@mantine/core";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { EventHandler, useState } from "react";
 import { urlFor } from "../../lib/sanity";
 import { client } from "../../utils/client";
 import { PortableText } from "@portabletext/react";
@@ -18,13 +18,17 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { useStore } from "../../store/useStore";
 import { useRouter } from "next/router";
+import { GameProps } from "../../types";
+import { useLanguage } from "../../hooks/useLanguage";
+interface IgamePage{
+  game:GameProps[]
+}
 
-
-const GamePage = ({ game }: any) => {
-  console.log(game);
+const GamePage = ({ game }:IgamePage) => {
   const [opened, setOpened] = useState(false);
   const [selected,setSelected]=useState()
-  const router=useRouter()
+  const router = useRouter()
+  const {t}=useLanguage()
   function handleClick(e:any) {
     setSelected(e.target.src)
     setOpened(true)
@@ -45,7 +49,7 @@ const GamePage = ({ game }: any) => {
         <Modal
           opened={opened}
           onClose={() => setOpened(false)}>
-          <img src={selected} className='object-cover w-full rounded'/>
+          <img src={selected} className='object-cover w-full rounded' alt="image"/>
         </Modal>
         <BackgroundImage
           src={urlFor(game[0].banner.asset._ref).url()}
@@ -76,7 +80,7 @@ const GamePage = ({ game }: any) => {
             radius="xl"
             color="teal"
             leftSection={<FaSteam size={25} />}>
-            steam
+            {t.steam}
           </Badge>
           <Badge
             sx={{ paddingLeft: 0 }}
@@ -84,7 +88,7 @@ const GamePage = ({ game }: any) => {
             radius="xl"
             color="teal"
             leftSection={<FaDownload size={20} />}>
-            downloadable
+            {t.downloadable}
           </Badge>
           <Badge
             sx={{ paddingLeft: 0 }}
@@ -92,7 +96,7 @@ const GamePage = ({ game }: any) => {
             radius="xl"
             color="teal"
             leftSection={<FaFireAlt size={20} />}>
-            hot
+            {t.hot}
           </Badge>
         </Group>
         <h1 className="text-center my-5">${game[0].price}</h1>
@@ -100,12 +104,12 @@ const GamePage = ({ game }: any) => {
           <button className="bg-[#FF5400] rounded-lg p-4" onClick={addItem}>
             <RiShoppingBag3Line size={35} color="white" />
           </button>
-          <button className="w-full p-4 bg-[#FF5400] text-white font-bold text-lg rounded-lg" onClick={addToCartItems}>
-            Shop now
+          <button className="w-full font-[Vazir] p-4 bg-[#FF5400] text-white font-bold text-lg rounded-lg" onClick={addToCartItems}>
+            {t.shop}
           </button>
         </Container>
         <div className="my-10">
-          <h2>Visuals</h2>
+          <h2 className="mb-5">{t.visuals}</h2>
           <video
             src={game[0].video}
             // eslint-disable-next-line react/no-unknown-property
@@ -136,7 +140,7 @@ const GamePage = ({ game }: any) => {
           </Container>
         </div>
         <div className="my-10">
-          <Spoiler maxHeight={240} showLabel="Show More" hideLabel="Hide">
+          <Spoiler maxHeight={240} showLabel={t.show} hideLabel={t.hide}>
             <PortableText value={game[0].description} />
           </Spoiler>
         </div>
