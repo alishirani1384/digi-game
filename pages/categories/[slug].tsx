@@ -32,7 +32,6 @@ const GamePage = ({ game }:IgamePage) => {
   function handleClick(e:any) {
     setSelected(e.target.src)
     setOpened(true)
-    console.log(selected);
     
   }
   const addTocart=useStore((state:any)=>state.addToCart)

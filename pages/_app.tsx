@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const handleStart = (url: string) => {
-      console.log(url);
+      
       if(url!==router.asPath||url!==`/fa-IR`||url!==`/fa-IR/${router.asPath}`) return setLoading(true)
       // return url !== router.asPath && setLoading(true)
     }

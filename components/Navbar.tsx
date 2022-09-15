@@ -16,6 +16,7 @@ import { useLanguage } from "../hooks/useLanguage";
 import { useStore } from "../store/useStore";
 import { useLoginStore } from "../store/useLoginStore";
 import LoginModal from "./LoginModal";
+import Image from "next/image";
 
 
 
@@ -64,7 +65,7 @@ const Navbar = () => {
     },
   ];
   return (
-    <nav className="z-50 mt-5">
+    <nav className="z-50">
       <Container
         size={"xl"}
         className="flex items-center justify-between mt-4 md:mt-2">
@@ -97,6 +98,9 @@ const Navbar = () => {
             </Menu.Dropdown>
           </Menu>
         </div>
+        <Link href='/'>
+          <Image src='/logo.svg' width='150px' height='100px' objectFit="contain" className="z-50" alt="logo"/>
+        </Link>
         <Link href="/cart" className="z-50">
           <Indicator
             color="red"

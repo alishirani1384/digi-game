@@ -14,7 +14,6 @@ interface Itrending{
 const Trendings = ({ games }: Itrending) => {
   const { t } = useLanguage();
   const { width } = useViewportSize();
-  console.log(games);
   
   const [sliderRef] = useKeenSlider({
     mode: "free-snap",

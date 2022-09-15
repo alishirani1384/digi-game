@@ -8,9 +8,7 @@ import { useStore } from "../store/useStore";
 const Cart = () => {
   const cartItems = useStore((state: any) => state.cartItems)
   const items: any = Array.from(new Set(cartItems))
-  const {t} = useLanguage()
-  console.log(items);
-  
+  const {t} = useLanguage() 
   
   return (
     <div className="my-10">
