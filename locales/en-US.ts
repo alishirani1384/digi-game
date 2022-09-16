@@ -32,5 +32,10 @@ export const en = {
   cart: "Cart",
   emptyh:"Your cart is empty",
   emptyp: "You didn t add any item in your cart yet. Browse the website to find amazing deals!",
-  discover:"Discover games"
+  discover: "Discover games",
+  loginbtn: "Login with",
+  welcome:"Welcome back😊",
+  email: "Your email",
+  password: "Your password",
+  terms:"I agree to Terms."
 };

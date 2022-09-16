@@ -13,7 +13,6 @@ interface Ihome{
 }
 
 const Home: NextPage<Ihome>= ({ banners,games }) => {
-  console.log(games);
   
   
   return (

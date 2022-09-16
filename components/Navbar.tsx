@@ -122,7 +122,7 @@ const Navbar = () => {
             return (
               <Link href={link.direction} key={index}>
                 <a className="flex space-x-3 items-center group cursor-pointer">
-                  <span className="hidden md:inline ml-2 font-bold ">
+                  <span className="hidden md:inline ml-2 font-bold group-hover:text-white">
                     {link.name}
                   </span>
                   {link.icon}

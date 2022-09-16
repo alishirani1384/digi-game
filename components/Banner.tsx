@@ -27,7 +27,7 @@ const Banner = ({ banners }:Ibanner) => {
             <div
               key={index}
               className="keen-slider__slide relative cursor-pointer">
-              <div>
+              <div className="relative">
                 <Image
                   src={urlFor(banner.image.asset._ref).url()}
                   width="600px"
@@ -36,6 +36,9 @@ const Banner = ({ banners }:Ibanner) => {
                   objectFit="cover"
                   alt={banner.name}
                 />
+                <div className="absolute bottom-0 top-0 left-0 right-0 flex justify-center items-center bg-[#00000048] text-white text-lg md:text-2xl lg:3xl font-bold">
+                  {banner.name}
+                </div>
               </div>
             </div>
           );

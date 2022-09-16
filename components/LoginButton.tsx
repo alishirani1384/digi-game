@@ -1,8 +1,10 @@
 import { Button } from '@mantine/core';
 import React from 'react';
+import { useLanguage } from '../hooks/useLanguage';
 
 
-const LoginButton = ({ Icon, name }:any) => {
+const LoginButton = ({ Icon, name }: any) => {
+  const {t}=useLanguage()
     let color: string;
     if (name == "Twitter") {
         color = "#42c8f5";
@@ -19,7 +21,6 @@ const LoginButton = ({ Icon, name }:any) => {
           height: 42,
           paddingLeft: 20,
           paddingRight: 20,
-
           "&:hover": {
             backgroundColor: color,
           },
@@ -29,7 +30,7 @@ const LoginButton = ({ Icon, name }:any) => {
           marginRight: 15,
         },
       })}>
-      Login with {name}
+      {t.loginbtn} {name}
     </Button>
   );
 }

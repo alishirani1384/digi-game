@@ -29,6 +29,15 @@ button{
   font-family: inherit;
 }
 
+.nofound{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 180px;
+  font-weight: 900;
+  color:#030005 ;
+  text-shadow: -1px -1px 0px #8400ff, 1px 1px 0px #ff005a;
+  letter-spacing: -20px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
