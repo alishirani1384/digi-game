@@ -10,7 +10,7 @@ const Layout = ({ children }: PropsWithChildren) => {
   const { t } = useLanguage();
   return (
     <div className='min-h-screen'>
-      <Container>
+      <Container size={'xl'}>
       <Navbar />
       <main>{children}</main>
       <Affix position={{ bottom: 20, right: 20 }}>

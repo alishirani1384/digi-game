@@ -18,7 +18,7 @@ const Banner = ({ banners }:Ibanner) => {
     },
   });
   return (
-    <div className="navigation-wrapper">
+    <div className="navigation-wrapper w-4/4">
       <div
         ref={sliderRef}
         className="keen-slider relative rounded-lg bg-white my-10">

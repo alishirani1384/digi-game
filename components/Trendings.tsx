@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mantine/core';
+import { Container, Grid } from '@mantine/core';
 import Image from 'next/image';
 import { urlFor } from '../lib/sanity';
 import Link from 'next/link';
@@ -42,9 +42,9 @@ const Trendings = ({ games }: Itrending) => {
                 <div className="cursor-pointer relative hover:scale-105 transition-transform ease-out-in delay-100">
                   <Image
                     src={urlFor(game.images[0].asset._ref).url()}
-                    width="200px"
+                    width="360px"
                     layout="responsive"
-                    height="150px"
+                    height="207px"
                     objectFit="cover"
                     className="rounded-lg"
                     alt={game.title}
@@ -76,9 +76,9 @@ const Trendings = ({ games }: Itrending) => {
                 <div className="cursor-pointer relative">
                   <Image
                     src={urlFor(game.images[0].asset._ref).url()}
-                    width="200px"
+                    width="280px"
                     layout="responsive"
-                    height="100px"
+                    height="160px"
                     objectFit="cover"
                     className="rounded-lg"
                     alt={game.name}

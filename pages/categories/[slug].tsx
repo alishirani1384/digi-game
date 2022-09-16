@@ -128,8 +128,8 @@ const GamePage = ({ game }:IgamePage) => {
                       className="rounded"
                       layout="responsive"
                       src={urlFor(image.asset._ref).url()}
-                      width="200px"
-                      height="200px"
+                      width="270px"
+                      height="154px"
                       alt="game-image"
                     />
                   </div>
