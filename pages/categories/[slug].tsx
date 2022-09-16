@@ -45,10 +45,12 @@ const GamePage = ({ game }:IgamePage) => {
   return (
     <>
       <div>
-        <Modal
-          opened={opened}
-          onClose={() => setOpened(false)}>
-          <img src={selected} className='object-cover w-full rounded' alt="image"/>
+        <Modal opened={opened} onClose={() => setOpened(false)}>
+          <img
+            src={selected}
+            className="object-cover w-full rounded"
+            alt="image"
+          />
         </Modal>
         <BackgroundImage
           src={urlFor(game[0].banner.asset._ref).url()}
@@ -103,19 +105,22 @@ const GamePage = ({ game }:IgamePage) => {
           <button className="bg-[#FF5400] rounded-lg p-4" onClick={addItem}>
             <RiShoppingBag3Line size={35} color="white" />
           </button>
-          <button className="w-full font-[Vazir] p-4 bg-[#FF5400] text-white font-bold text-lg rounded-lg" onClick={addToCartItems}>
+          <button
+            className="w-full font-[Vazir] p-4 bg-[#FF5400] text-white font-bold text-lg rounded-lg"
+            onClick={addToCartItems}>
             {t.shop}
           </button>
         </Container>
         <div className="my-10">
           <h2 className="mb-5">{t.visuals}</h2>
-          <video
-            src={game[0].video}
-            // eslint-disable-next-line react/no-unknown-property
-            controls={true}
-            poster={urlFor(game[0].banner.asset._ref).url()}
-          />
+
           <Container className="my-5 ">
+            <video
+              src={game[0].video}
+              // eslint-disable-next-line react/no-unknown-property
+              controls={true}
+              poster={urlFor(game[0].banner.asset._ref).url()}
+            />
             <SimpleGrid cols={4}>
               {game[0].images.map(
                 (
