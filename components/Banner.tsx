@@ -31,7 +31,7 @@ const Banner = ({ banners }:Ibanner) => {
                 <Image
                   src={urlFor(banner.image.asset._ref).url()}
                   width="600px"
-                  height="300px"
+                  height="200px"
                   layout="responsive"
                   objectFit="cover"
                   alt={banner.name}
